@@ -1,0 +1,221 @@
+@import "../../variables"
+
+$codega-border-dark: 0 2px 0 0 $codega-gray-light, 0 6px 0 0 $codega-dark-blue, 0 10px 0 0 $codega-accent
+$codega-border: 0 2px 0 0 $codega-gray-dark, 0 6px 0 0 $codega-white, 0 10px 0 0 $codega-accent
+
+.my-navbar
+	transition: $default-transition
+	position: fixed
+	top: 0
+	height: $navbar-height
+	width: 100vw
+	background: $codega-white
+	box-shadow: $codega-border
+	display: flex
+	align-items: center
+	justify-content: space-between
+	z-index: 100
+	filter: drop-shadow(0 0 10px $codega-gray-dark)
+
+.dark-mode-toggle
+	position: relative
+	transform: scale(60%)
+	margin-right: 1.5rem
+
+	&:before
+		color: $codega-dark-blue
+		position: absolute
+		content: 'LIGHT'
+		left: 50%
+		top: 100%
+		transform: translateX(-50%)
+
+.my-navbar .container
+	display: flex
+	align-items: center
+	justify-content: space-between
+	.logo
+		transition: $default-transition
+		padding: 0.25rem
+		max-height: 40px
+		path
+			fill: $codega-dark-blue
+			stroke: $codega-white
+
+		&:hover
+			transform-origin: 0 50%
+			transform: scale(110%)
+
+	.links
+		margin: 0
+		display: flex
+		align-items: center
+		justify-content: center
+
+	.links a
+		font-family: 'Montserrat', sans-serif
+		color: $codega-gray-dark
+		transition: $default-transition
+
+		&:not(:last-child)
+			margin-right: 1.5rem
+
+		&:visited, &:link, &:active
+			text-decoration: none
+
+		position: relative
+		&:not(.social):before
+			content: ''
+			transition: $default-transition
+			position: absolute
+			background: $codega-dark-blue
+			width: 0
+			height: 3px
+			z-index: 0
+			top: 100%
+			left: 50%
+			transform: translateX(-50%)
+			border-radius: 5px
+
+		&:hover, &.active
+			&:not(.social):before
+				width: 110%
+
+		&:hover
+			color: $codega-dark-blue
+			//transform: scale(1.05)
+
+		&.social
+			font-size: 1.25rem
+			position: relative
+			width: 20px
+			height: 20px
+			display: flex
+			justify-content: center
+			align-items: center
+
+			&:before
+				content: attr(data-abbr)
+				position: absolute
+				bottom: 0
+				opacity: 0
+				left: 50%
+				transform: translateX(-50%)
+				font-size: 0.6rem
+				transition: $default-transition
+			&:hover
+				transform: scale(1.2)
+				&:before
+					background: none
+					opacity: 1
+					bottom: 90%
+
+
+.dark .dark-mode-toggle:before
+	color: white
+	content: 'DARK'
+	bottom: 100%
+
+.dark .my-navbar
+	background: $codega-dark-blue
+	.links a
+		&:link, &:visited
+			color: $codega-white
+		&:hover
+			color: $codega-accent
+		&.active:before
+			background: $codega-white
+		&:hover:before
+			background: $codega-accent
+
+	.logo path
+		fill: $codega-white
+		stroke: $codega-dark-blue
+
+	box-shadow: $codega-border-dark
+
+.my-navbar .logo-link
+	position: relative
+	.tricolor
+		border-radius: 20px
+		overflow: hidden
+		height: 1rem
+		width: 0
+		position: absolute
+		top: 50%
+		left: 10px
+		transform: translateY(-50%)
+		transition: $default-transition
+	.tricolor img
+		position: absolute
+		top: 2px
+		width: 1rem
+		transform: rotate(90deg) translateY(-650%) scaleY(50)
+	&:hover .tricolor
+		width: 250px
+		opacity: 1
+
+.my-navbar .mobile
+	color: $codega-gray-dark
+	.logo-link, .hamburger-react
+		z-index: 100
+
+.mobile	.menu
+	position: absolute
+	width: 100vw
+	top: -100vh
+	left: 0
+	transition: $default-transition
+	z-index: 10
+	background: $codega-white
+	box-shadow: $codega-border
+	font-size: 1.5em
+
+	hr:first-child
+		margin-top: 0
+
+	ul
+		list-style: none
+		padding: 0
+		display: flex
+		flex-direction: column
+		align-items: center
+		li:not(:last-child)
+			margin-bottom: 0.25rem
+
+	.toggler
+		display: flex
+		justify-content: center
+		.dark-mode-toggle
+			transform: scale(0.8)
+			font-size: 0.8rem
+			margin: 0
+		margin: 1rem 0 2rem 0
+
+	.socials
+		margin: 1rem 0
+
+	.links.socials a.social
+		font-size: 2rem
+		width: 30px
+		height: 30px
+		&:before
+			content: none
+
+	&.open
+		top: 100%
+
+.dark .my-navbar .mobile
+	color: $codega-white
+	.menu
+		background: $codega-dark-blue
+		box-shadow: $codega-border-dark
+
+
+@media (min-width: $lg)
+	.my-navbar .mobile
+		display: none
+
+@media (max-width: $lg)
+	.my-navbar .desktop
+		display: none

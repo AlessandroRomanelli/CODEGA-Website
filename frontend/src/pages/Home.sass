@@ -1,0 +1,47 @@
+@import "../variables"
+
+.page.presentation
+	.background
+		position: absolute
+		top: 0
+		z-index: 0
+		max-height: 100vh
+
+		&:after
+			content: ''
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background: linear-gradient(155deg, transparentize($codega-dark-blue, 0.3) 30%, transparent 65%)
+			pointer-events: none
+			z-index: 15
+
+		img
+			max-width: 100vw
+			position: relative
+
+	svg.logo
+		width: 600px
+		z-index: 10
+		stroke: $codega-dark-blue
+		filter: drop-shadow(0 0 1px $codega-accent)
+
+	.container
+		height: 100%
+		display: flex
+		align-items: center
+		justify-content: left
+		pointer-events: none
+
+	.splash
+		display: flex
+		flex-direction: column
+		color: $codega-white
+		align-items: center
+		position: relative
+		top: -10rem
+
+		span
+			font-size: 1.5em

@@ -1,0 +1,319 @@
+@import "../variables"
+
+$r-license-color: #fc0706
+$d-license-color: #fc8a27
+$c-license-color: #feec04
+$b-license-color: #00c702
+$a-license-color: #0153db
+$wc-license-color: #000000
+
+$card-width: 300px
+$card-height: 150px
+
+.line-up
+	min-height: 100vh
+	height: initial
+	.background
+		height: 40vh
+		overflow: hidden
+		background: url("../images/team-bg.png") no-repeat 50% 50%
+		background-size: cover
+
+	.team
+		position: relative
+		display: flex
+		flex-direction: column
+		max-height: 300px
+		overflow: hidden
+		margin-bottom: 1rem
+		transition: $default-transition
+		transition-property: max-height
+		transition-duration: 2s
+		padding-bottom: 1rem
+		&:after
+			transition: $default-transition
+			transition-delay: 1.5s
+			content: ""
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 100%
+			height: 75px
+			z-index: 10
+
+		&.open
+			max-height: 500vh
+			//@media (max-width: $xxl)
+			//	max-height: 150vh
+			//@media (max-width: $xl)
+			//	max-height: 200vh
+			//@media (max-width: $md)
+			//	max-height: 500vh
+
+			&:after
+				height: 0
+			.opener svg
+				transform: rotate(180deg)
+		.opener
+			position: absolute
+			left: 50%
+			bottom: 0
+			transform: translateX(-50%)
+			z-index: 100
+			text-transform: uppercase
+			font-size: 0.75rem
+			background: none
+			border: none
+			svg
+				transition: $default-transition
+
+
+	.member.card
+		height: $card-height
+		width: $card-width
+		margin: 0.5rem
+		padding: 1rem 1rem 1rem 1rem
+		position: relative
+		background: transparent
+		transition: $default-transition
+		box-shadow: 0 0 0 0 $codega-accent
+		overflow: hidden
+
+		&:hover
+			cursor: pointer
+			box-shadow: 3px 3px 0 0 $codega-accent
+
+		*:not(.race-number)
+			z-index: 10
+
+		.role
+			text-transform: uppercase
+			font-size: 0.75rem
+			font-weight: lighter
+
+		.name
+			line-height: 1rem
+			font-weight: bold
+			font-size: 1.25rem
+			margin-bottom: 0.5rem
+
+		.social-link
+			display: flex
+			align-items: center
+			font-size: 1.25rem
+			img
+				max-height: 20px
+				width: 100%
+				border-radius: 3px
+
+		.links
+			display: flex
+			justify-content: right
+			align-items: center
+			position: absolute
+			bottom: 1rem
+			right: 1rem
+
+		.links a
+			transition: $default-transition
+			&:not(:last-child)
+				margin-right: 0.5rem
+			&:hover
+				transform: scale(1.35)
+
+		.stats > *:not(:last-child)
+			margin-right: 0.25rem
+
+		.irating, .safety-rating
+			display: inline-block
+			padding: 0.2rem 0.3rem
+			font-weight: bold
+			align-items: center
+			border: 1px solid transparent
+			border-radius: 4px
+			line-height: 0.8rem
+			border: 1px solid $codega-dark-blue
+
+	.driver-info
+		position: relative
+		height: 100%
+		width: calc($card-width - $card-height)
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: flex-start
+		padding-left: 1rem
+
+		svg
+			width: 1rem
+			margin-right: 0.25rem
+
+		.since
+			position: absolute
+			bottom: 0
+			left: 50%
+			transform: translateX(-50%)
+			text-align: center
+			font-size: 0.7rem
+			text-transform: uppercase
+			width: 100%
+			span
+				display: inline
+				font-weight: bold
+
+	.avatar
+		position: absolute
+		right: 0
+		top: 0
+		height: $card-height
+		width: $card-height
+		border-left: 2px solid $codega-accent
+		img
+			height: 100%
+			opacity: 1
+
+	.national-flag
+		height: 40px
+		max-width: 60px
+		position: absolute
+		top: 0.5rem
+		left: 1rem
+		border-radius: 5px
+		overflow: hidden
+		img
+			height: 100%
+
+	.race-number
+		display: inline-block
+		line-height: 2.5rem
+		position: absolute
+		top: 0.5rem
+		right: 1rem
+		font-size: 2.5rem
+		opacity: 1
+		font-family: "62DRAGZ", sans-serif
+		z-index: 0
+		color: mix($codega-white, $codega-dark-blue, 70%)
+		filter: drop-shadow(1px 1px 0 mix($codega-accent, $codega-dark-blue, 50%))
+
+	.team-name
+		margin-top: 1rem
+		display: flex
+		justify-content: center
+		h2
+			line-height: 1.5rem
+			font-family: "abnes", sans-serif
+			text-align: center
+
+	.members
+		margin-top: 1rem
+		display: flex
+		flex-wrap: wrap
+		justify-content: center
+
+	.loader
+		margin-top: 3rem
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		small
+			text-transform: uppercase
+			font-size: 0.75rem
+			margin-top: 0.5rem
+
+	.teams
+		margin-top: 2rem
+		animation: opendown 1s ease-in-out
+		transform-origin: top
+
+	.safety-rating.class-a
+		background: $a-license-color
+	.safety-rating.class-b
+		background: $b-license-color
+	.safety-rating.class-c
+		background: $c-license-color
+	.safety-rating.class-d
+		background: $d-license-color
+	.safety-rating.rookie
+		background: $r-license-color
+
+.front .member.card
+	justify-content: flex-end
+
+.back .member.card
+	display: flex
+	justify-content: center
+	padding: 0
+
+.line-up
+	.background
+		border-bottom: 2px solid $codega-accent
+
+	.member.card
+		background: $codega-white
+		.irating
+			border-color: $codega-dark-blue
+		.safety-rating
+			color: $codega-white
+
+		.links a
+			&:visited, &:link
+				color: $codega-gray-light
+			&:hover
+				color: $codega-dark-blue
+
+	.race-number
+		color: $codega-dark-blue
+		filter: drop-shadow(1px 1px 0 $codega-accent)
+
+	.social-link img
+		opacity: 0.5
+		&:hover
+			opacity: 1
+
+.dark .line-up
+	.background
+		border-bottom: 2px solid $codega-accent
+	.member.card
+		border-color: $codega-white
+		background: $codega-dark-blue
+
+		.irating
+			background: $codega-white
+			color: $codega-dark-blue
+
+		.links a
+			&:visited, &:link
+				color: $codega-white
+			&:hover
+				color: $codega-accent
+
+	.social-link img
+		opacity: 1
+
+	.race-number
+		color: $codega-white
+		filter: none
+
+.team:after
+	background: linear-gradient(transparent, $codega-white 60%)
+
+.dark .team:after
+	background: linear-gradient(transparent, $codega-dark-blue 60%)
+
+.dark .team .opener
+	color: $codega-white
+
+.line-up .member.card .irating.top
+	color: $codega-white
+	background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%), radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%)
+
+
+@keyframes opendown
+	0%
+		opacity: 0
+		transform: scaleY(0)
+	100%
+		opacity: 1
+		transform: scaleY(1)

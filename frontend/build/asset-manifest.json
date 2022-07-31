@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4a526ce4.css",
+    "main.js": "/static/js/main.4455ea09.js",
+    "static/js/787.f5edb4ac.chunk.js": "/static/js/787.f5edb4ac.chunk.js",
+    "static/media/background-1.png": "/static/media/background-1.43df0495bc983478bab4.png",
+    "static/media/abnes.ttf": "/static/media/abnes.700eaa58b77df86f557c.ttf",
+    "static/media/codega_logo.svg": "/static/media/codega_logo.fb1d727d7514a3374797339ff8eb8b18.svg",
+    "static/media/codega_logo_abbr.svg": "/static/media/codega_logo_abbr.36ed02847df1a1ead049518da1857d68.svg",
+    "index.html": "/index.html",
+    "main.4a526ce4.css.map": "/static/css/main.4a526ce4.css.map",
+    "main.4455ea09.js.map": "/static/js/main.4455ea09.js.map",
+    "787.f5edb4ac.chunk.js.map": "/static/js/787.f5edb4ac.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4a526ce4.css",
+    "static/js/main.4455ea09.js"
+  ]
+}

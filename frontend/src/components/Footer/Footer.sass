@@ -1,0 +1,100 @@
+@import "../../variables"
+
+footer
+	border-top: 4px double transparent
+
+.copyright
+	display: flex
+	justify-content: center
+	padding-bottom: 0.5rem
+
+.footer
+	padding: 1rem 0
+	display: grid
+	grid-template-columns: 2fr 1fr 2fr 2fr
+	grid-gap: 1rem
+
+	& > div
+		padding: 1rem
+
+	img
+		max-width: 95%
+		margin-bottom: 1rem
+
+	.social-icons
+		margin: 1rem 0
+		display: flex
+		justify-content: center
+
+		.social
+			font-size: 2rem
+			transition: $default-transition
+			&:hover
+				transform: scale(1.1)
+
+		.social:not(:last-child)
+			margin-right: 2rem
+
+	.navigation
+		ul
+			list-style: none
+			padding: 0
+
+		li
+			padding: 0
+			margin: 0.5rem 0
+		a
+			display: inline-block
+			transform: translateX(0)
+			transition: $default-transition
+			&:link, &:visited
+				text-decoration: none
+			&:hover,&.active
+				transform: translateX(0.5rem)
+			&.active
+				opacity: 0.5
+				&:hover
+					cursor: not-allowed
+
+	.contacts > div
+		display: flex
+		flex-direction: column
+		svg
+			margin-right: 0.5rem
+		& > div:not(:last-child)
+			margin-bottom: 0.5rem
+
+footer
+	transition: $default-transition
+	background: darken($codega-white, 5%)
+	color: $codega-gray-dark
+	border-color: $codega-gray-light
+	img
+		transition: $default-transition
+		filter: invert(1)
+	.social
+		&:link, &:visited
+			color: transparentize($codega-gray-dark, 0.5)
+		&:hover
+			color: $codega-gray-dark
+
+	.navigation
+		a:link, a:visited
+			color: $codega-gray-dark
+
+
+
+.dark footer
+	background: darken($codega-dark-blue, 5%)
+	color: $codega-white
+	border-color: $codega-accent
+	img
+		filter: invert(0)
+	.social
+		&:link, &:visited
+			color: $codega-white
+		&:hover
+			color: $codega-accent
+	.navigation
+		a:link, a:visited
+			color: $codega-white

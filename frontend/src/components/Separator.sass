@@ -1,0 +1,17 @@
+@import "../variables"
+
+.separator
+	svg
+		position: absolute
+		bottom: 0
+		transform: scale(1.1)
+		width: 100%
+		path
+			transition: $default-transition
+			fill: $codega-white
+			stroke: $codega-accent
+			filter: drop-shadow(0 0 10px $codega-gray-dark)
+
+	&.dark svg path
+		fill: $codega-dark-blue
+		stroke: $codega-white
